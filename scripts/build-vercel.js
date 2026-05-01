@@ -18,4 +18,9 @@ fs.rmSync(target, { recursive: true, force: true });
 fs.mkdirSync(target, { recursive: true });
 fs.cpSync(source, target, { recursive: true });
 
-console.log('Build Vercel listo: web copiado a public.');
+// The existing HTML is compatible with the local Electron/server path `/web/*`.
+// Keep that path available on Vercel too while also serving clean root pages.
+fs.mkdirSync(path.join(target, 'web'), { recursive: true });
+fs.cpSync(source, path.join(target, 'web'), { recursive: true });
+
+console.log('Build Vercel listo: web copiado a public y public/web.');
