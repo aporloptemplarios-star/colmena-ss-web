@@ -7,7 +7,7 @@
     "start": "electron .",
     "start:web": "node server.production.js",
     "start:prod": "NODE_ENV=production node server.production.js",
-    "build:vercel": "node --check web/app.js",
+    "build:vercel": "node scripts/build-vercel.js",
     "build": "node --check server.production.js && node --check web/app.js",
     "check": "node --check main.js && node --check server.production.js && node --check src/services/saasService.js && node --check src/services/authService.js && node --check web/app.js && node --check scripts/check-production-env.js && node --check scripts/smoke-production.js",
     "check:prod-env": "node scripts/check-production-env.js",

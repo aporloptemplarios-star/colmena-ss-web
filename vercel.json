@@ -1,6 +1,6 @@
 {
   "buildCommand": "npm run build:vercel",
-  "outputDirectory": "web",
+  "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
