@@ -3,94 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Colmena WorkSuite y COLMENA-SS para servidores RedM/FiveM: launcher, Discord, IA, logs, soporte y escaneos consentidos.">
   <title>Colmena WorkSuite | COLMENA-SS</title>
   <link rel="stylesheet" href="/web/styles.css">
 </head>
-<body onload="loadPlans()">
+<body class="page-home" onload="loadPlans()">
   <nav class="nav">
-    <div class="brand">COLMENA WORKSUITE</div>
+    <a class="brand" href="/">COLMENA-SS</a>
     <div class="nav-links">
-      <a href="#productos">Planes</a>
       <a href="/colmena-ss">COLMENA-SS</a>
       <a href="/precios">Precios</a>
-      <a href="#argumentario">Por que Colmena</a>
-      <a href="#contacto">Contacto</a>
-      <a href="/panel">Panel Cliente</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#confianza">Confianza</a>
+      <a href="/login">Acceso</a>
+      <a class="nav-cta" href="/registro">Empezar</a>
     </div>
   </nav>
 
   <header class="hero">
-    <div>
-      <p class="eyebrow">Launcher + Discord + Anticheat + IA + escaneos consentidos</p>
-      <h1>Colmena WorkSuite para servidores RedM/FiveM que necesitan control real.</h1>
-      <p>Una plataforma comercial para comunidades gaming: launcher profesional, bot de Discord, logs, soporte, licencias, IA tecnica y COLMENA-SS para revisiones consentidas con trazabilidad.</p>
+    <div class="hero-copy">
+      <p class="eyebrow">Launcher + Discord + IA + escaneos consentidos</p>
+      <h1>Operaciones de seguridad para servidores RedM/FiveM.</h1>
+      <p class="lead">Colmena WorkSuite une web, launcher, Discord Bot, logs, soporte y COLMENA-SS para que tu staff pueda revisar casos, organizar evidencias y entregar reportes claros.</p>
       <div class="cta-row">
-        <a class="btn" href="#productos">Ver planes</a>
-        <a class="btn secondary" href="/precios">Ver precios</a>
+        <a class="btn" href="/colmena-ss">Contratar COLMENA-SS</a>
+        <a class="btn secondary" href="/precios">Ver planes</a>
+      </div>
+      <div class="hero-points">
+        <span>Escaneos consentidos</span>
+        <span>Tickets privados</span>
+        <span>Roles automaticos</span>
       </div>
     </div>
+    <aside class="hero-panel" aria-label="Estado operativo">
+      <div class="panel-topline">
+        <span>Estado comercial</span>
+        <strong>Ready</strong>
+      </div>
+      <div class="signal-list">
+        <div><span></span> Discord y roles preparados</div>
+        <div><span></span> Stripe listo para conexion live</div>
+        <div><span></span> Backend API separado para VPS</div>
+        <div><span></span> Reportes y trazabilidad</div>
+      </div>
+    </aside>
   </header>
 
-  <section class="section" id="oferta">
-    <h2>Oferta de lanzamiento</h2>
-    <p>Para los primeros servidores: activacion sin coste, configuracion inicial de Discord y launcher, y primer mes con soporte prioritario de puesta en marcha.</p>
-    <div class="grid">
-      <div class="card"><h3>Primeros 10 clientes</h3><p class="muted">Setup incluido, revision del servidor y configuracion base de canales, roles y logs.</p></div>
-      <div class="card"><h3>Premium recomendado</h3><p class="muted">79 EUR/mes con COLMENA-SS basico, IA basica, bot Discord y logs avanzados.</p></div>
-      <div class="card"><h3>COLMENA-SS recurrente</h3><p class="muted">Servicio mensual para servidores que quieren revisiones operadas por staff y reportes auditables.</p></div>
+  <section class="section compact" id="confianza">
+    <div class="metric-grid">
+      <div class="metric"><strong>24/7</strong><span>bot preparado para operar</span></div>
+      <div class="metric"><strong>100%</strong><span>flujo con consentimiento</span></div>
+      <div class="metric"><strong>2</strong><span>servicios principales SS</span></div>
+      <div class="metric"><strong>1</strong><span>panel para clientes</span></div>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Oferta de lanzamiento</p>
+      <h2>Empieza con una operativa seria sin reconstruir tu comunidad.</h2>
+      <p>Activacion inicial, revision del Discord, configuracion de canales y primer acompanamiento para que el staff entienda el flujo desde el primer caso.</p>
+    </div>
+    <div class="grid tight">
+      <div class="card"><h3>Setup guiado</h3><p class="muted">Canales, roles, permisos y panel de solicitudes preparados para operar.</p></div>
+      <div class="card"><h3>Soporte de arranque</h3><p class="muted">Acompanamiento durante la primera configuracion y primeros escaneos.</p></div>
     </div>
   </section>
 
   <section class="section" id="productos">
-    <h2>Planes WorkSuite</h2>
-    <p>Basic abre la puerta, Premium es el plan recomendado y Enterprise Diamond queda para operaciones profesionales o multi-servidor.</p>
+    <div class="section-heading">
+      <p class="eyebrow">WorkSuite</p>
+      <h2>Planes para cada nivel de servidor.</h2>
+      <p>Basic abre la puerta, Premium es el plan recomendado y Enterprise Diamond queda para operaciones profesionales o multi-servidor.</p>
+    </div>
     <div class="grid" id="plans"></div>
   </section>
 
-  <section class="section" id="colmena-ss">
-    <h2>Servicio COLMENA-SS</h2>
-    <p>Escaneos consentidos para usuarios sospechosos: ticket privado, sala de voz/video, recopilacion tecnica autorizada, analisis IA, evidencias, decision de staff y reporte final.</p>
-    <div class="grid">
-      <div class="card"><h3>Escaneo individual</h3><div class="price">5-15&euro;</div><p class="muted">Ideal para casos puntuales o comunidades que necesitan una revision rapida.</p></div>
-      <div class="card"><h3>Starter servidor</h3><div class="price">49&euro;/mes</div><p class="muted">Servicio base para servidores pequenos con cola de escaneos limitada.</p></div>
-      <div class="card featured"><div class="badge">Principal</div><h3>Pro servidor</h3><div class="price">149&euro;/mes</div><p class="muted">Operacion recurrente con prioridad, reportes y soporte de staff.</p></div>
-      <div class="card"><h3>Enterprise servidor</h3><div class="price">Desde 299&euro;/mes</div><p class="muted">Multi-servidor, SLA, personalizacion y auditoria avanzada.</p></div>
+  <section class="section band" id="proceso">
+    <div class="section-heading">
+      <p class="eyebrow">COLMENA-SS</p>
+      <h2>Del pago al reporte final, sin improvisar.</h2>
+    </div>
+    <div class="timeline">
+      <div><strong>01</strong><h3>Contrato</h3><p>El cliente compra un escaneo o plan mensual y registra su Discord ID.</p></div>
+      <div><strong>02</strong><h3>Acceso</h3><p>El bot verifica el pago, asigna rol y abre el acceso correspondiente.</p></div>
+      <div><strong>03</strong><h3>Revision</h3><p>El staff gestiona ticket, sala de voz, evidencias y apoyo tecnico.</p></div>
+      <div><strong>04</strong><h3>Reporte</h3><p>Se entrega resultado claro: limpio, sospechoso, detectado o revision adicional.</p></div>
     </div>
   </section>
 
-  <section class="section" id="precios">
-    <h2>Tabla final de precios</h2>
-    <table class="table">
-      <thead><tr><th>Producto</th><th>Precio</th><th>Incluye</th><th>Uso ideal</th></tr></thead>
-      <tbody>
-        <tr><td>Basic</td><td>29&euro;/mes</td><td>Launcher basico, Discord Sync, logs simples, soporte estandar</td><td>Entrada comercial</td></tr>
-        <tr><td>Premium</td><td>79&euro;/mes</td><td>Launcher completo, bot, IA basica, logs avanzados, COLMENA-SS basico</td><td>Plan recomendado</td></tr>
-        <tr><td>Enterprise Diamond</td><td>Desde 199&euro;/mes</td><td>Todo incluido, IA avanzada, Anticheat Bridge, auditoria, multi-servidor</td><td>Clientes profesionales</td></tr>
-        <tr><td>COLMENA-SS individual</td><td>5-15&euro;/usuario</td><td>Revision consentida, evidencias y reporte</td><td>Casos puntuales</td></tr>
-        <tr><td>COLMENA-SS mensual</td><td>49/149/299&euro;+</td><td>Servicio recurrente Starter, Pro o Enterprise</td><td>Ingreso recurrente principal</td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="section" id="argumentario">
-    <h2>Argumentario comercial</h2>
+  <section class="section" id="colmena-ss">
+    <div class="section-heading">
+      <p class="eyebrow">Servicio independiente</p>
+      <h2>Contrata COLMENA-SS sin comprar el launcher completo.</h2>
+      <p>Escaneos consentidos para usuarios sospechosos: ticket privado, sala de voz/video, recopilacion tecnica autorizada, analisis de apoyo, evidencias y decision de staff.</p>
+    </div>
     <div class="grid">
-      <div class="card"><h3>Problema</h3><p class="muted">Los servidores pierden tiempo con sospechas, discusiones, tickets desordenados y falta de pruebas.</p></div>
-      <div class="card"><h3>Solucion</h3><p class="muted">Colmena centraliza launcher, Discord, IA, logs y flujo COLMENA-SS en un proceso profesional y auditable.</p></div>
-      <div class="card"><h3>Diferencia</h3><p class="muted">La IA recomienda, el anticheat aporta senales y el staff decide. El usuario participa mediante revision consentida.</p></div>
+      <div class="card"><h3>Escaner individual</h3><div class="price">15&euro;</div><p class="muted">Ideal para un caso puntual que necesita revision rapida.</p></div>
+      <div class="card featured"><div class="badge">Recomendado</div><h3>Mensual servidor</h3><div class="price">149&euro;/mes</div><p class="muted">Servicio recurrente con soporte, canal privado y prioridad.</p></div>
+      <div class="card"><h3>Diamond SS</h3><div class="price">A medida</div><p class="muted">Integracion con Discord del cliente, seguimiento y personalizacion.</p></div>
     </div>
   </section>
 
   <section class="section" id="contacto">
-    <h2>Solicitar demo</h2>
-    <p>Prepara tu servidor para vender, operar escaneos consentidos o activar WorkSuite con licencias.</p>
-    <form class="form" onsubmit="event.preventDefault(); alert('Solicitud preparada. Conecta tu CRM o Discord webhook.');">
-      <input placeholder="Nombre">
-      <input placeholder="Email">
-      <input placeholder="Servidor RedM/FiveM">
-      <textarea placeholder="Cuéntanos tu caso"></textarea>
-      <button class="btn">Pedir demo</button>
-    </form>
+    <div class="section-heading">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>Prepara tu servidor para operar con trazabilidad.</h2>
+      <p>Registra tu cuenta, elige plan y vincula tu Discord para activar el flujo de acceso.</p>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3>COLMENA-SS esta listo para recibir los primeros clientes.</h3>
+        <p>El backend y el bot se conectaran desde VPS para pagos, invitaciones y roles automaticos.</p>
+      </div>
+      <a class="btn" href="/registro">Crear cuenta</a>
+    </div>
   </section>
 
   <script src="/web/env.js"></script>

@@ -3,63 +3,76 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="COLMENA-SS: servicio profesional de escaneo consentido para servidores RedM/FiveM mediante Discord, tickets, evidencias y reportes.">
   <title>COLMENA-SS | Escaneos consentidos RedM/FiveM</title>
   <link rel="stylesheet" href="/web/styles.css">
 </head>
-<body onload="loadSSPage()">
+<body class="page-ss" onload="loadSSPage()">
   <nav class="nav">
-    <div class="brand">COLMENA-SS</div>
+    <a class="brand" href="/">COLMENA-SS</a>
     <div class="nav-links">
       <a href="/">WorkSuite</a>
-      <a href="#planes">Planes SS</a>
-      <a href="#funciona">Como funciona</a>
+      <a href="#funciona">Proceso</a>
+      <a href="#planes">Planes</a>
       <a href="#privacidad">Privacidad</a>
-      <a href="#contratar">Contratar</a>
-      <a href="/registro?next=colmena-ss">Registro</a>
-      <a href="/login?next=colmena-ss">Login</a>
-      <a href="/panel">Panel Cliente</a>
+      <a href="/login">Login</a>
+      <a class="nav-cta" href="/registro?next=colmena-ss">Registro</a>
     </div>
   </nav>
 
   <header class="hero ss-hero">
-    <div>
-      <p class="eyebrow">Servicio independiente de escaneos consentidos</p>
-      <h1>COLMENA-SS para servidores RedM/FiveM.</h1>
-      <p>COLMENA-SS es un sistema profesional de verificacion y escaneo consentido disenado para ayudar a servidores RedM/FiveM a detectar usuarios sospechosos, revisar evidencias, organizar escaneos por Discord y generar reportes claros para el staff.</p>
-      <p>No vendemos humo. Ofrecemos un flujo de trabajo completo: solicitud, ticket, sala de revision, analisis tecnico, IA de apoyo, logs, evidencias y reporte final.</p>
+    <div class="hero-copy">
+      <p class="eyebrow">Escaneos consentidos para comunidades gaming</p>
+      <h1>Revisiones claras para usuarios sospechosos.</h1>
+      <p class="lead">COLMENA-SS ayuda a servidores RedM/FiveM a organizar solicitudes, tickets, salas de revision, evidencias y reportes finales para el staff.</p>
+      <p>No vendemos humo. Ofrecemos un flujo completo: solicitud, ticket, sala de revision, analisis tecnico, IA de apoyo, logs, evidencias y reporte final.</p>
       <div class="cta-row">
-        <a class="btn" href="#planes">Ver planes</a>
-        <a class="btn secondary" href="#contratar">Contratar escaneo</a>
+        <a class="btn" href="#planes">Ver servicios</a>
+        <a class="btn secondary" href="#contratar">Contratar</a>
       </div>
     </div>
+    <aside class="hero-panel">
+      <div class="panel-topline"><span>Flujo SS</span><strong>Consentido</strong></div>
+      <div class="signal-list">
+        <div><span></span> Ticket privado por caso</div>
+        <div><span></span> Sala de voz/video</div>
+        <div><span></span> Evidencias restringidas</div>
+        <div><span></span> Resultado final documentado</div>
+      </div>
+    </aside>
   </header>
 
-  <section class="section">
-    <h2>Que es COLMENA-SS</h2>
-    <p>Un servicio operado mediante Discord, launcher, bot, IA, anticheat y staff autorizado. Sirve para ordenar revisiones de usuarios sospechosos sin improvisar, siempre con consentimiento y trazabilidad.</p>
-    <div class="grid">
-      <div class="card"><h3>Para servidores</h3><p class="muted">RedM/FiveM, comunidades whitelist, servidores roleplay y equipos con staff activo.</p></div>
-      <div class="card"><h3>Que recibe el cliente</h3><p class="muted">Acceso Discord, rol segun plan, canal privado si aplica, creditos de escaneo, soporte y reportes.</p></div>
-      <div class="card"><h3>Despues del pago</h3><p class="muted">Se genera invitacion unica, se vincula tu Discord ID, el bot asigna rol y se habilitan canales permitidos.</p></div>
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Que es</p>
+      <h2>Un servicio operativo, no solo una herramienta.</h2>
+      <p>COLMENA-SS combina Discord, bot, launcher, IA de apoyo, logs y staff autorizado para que cada revision tenga orden, consentimiento y trazabilidad.</p>
+    </div>
+    <div class="grid tight">
+      <div class="card"><h3>Para servidores</h3><p class="muted">RedM/FiveM, roleplay, comunidades whitelist y equipos con staff activo.</p></div>
+      <div class="card"><h3>Para clientes</h3><p class="muted">Acceso Discord, rol segun plan, soporte, creditos de escaneo y reportes.</p></div>
     </div>
   </section>
 
-  <section class="section" id="funciona">
-    <h2>Como funciona</h2>
-    <table class="table">
-      <tbody>
-        <tr><td>1</td><td>El servidor contrata un plan o escaneo individual.</td></tr>
-        <tr><td>2</td><td>Stripe confirma el pago y el backend registra el cliente.</td></tr>
-        <tr><td>3</td><td>El bot crea invitacion unica y asigna el rol Discord correspondiente.</td></tr>
-        <tr><td>4</td><td>El cliente solicita escaneo desde #📋・solicitar-escaneo.</td></tr>
-        <tr><td>5</td><td>El usuario acepta revision, entra en ticket/sala y el staff revisa evidencias.</td></tr>
-        <tr><td>6</td><td>Se genera reporte final para el staff del servidor cliente.</td></tr>
-      </tbody>
-    </table>
+  <section class="section band" id="funciona">
+    <div class="section-heading">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Un flujo simple para casos delicados.</h2>
+    </div>
+    <div class="timeline">
+      <div><strong>01</strong><h3>Compra</h3><p>El servidor contrata un escaneo individual o plan mensual.</p></div>
+      <div><strong>02</strong><h3>Verificacion</h3><p>Stripe confirma el pago y el bot vincula el Discord ID registrado.</p></div>
+      <div><strong>03</strong><h3>Solicitud</h3><p>El cliente abre la solicitud desde el canal de escaneos.</p></div>
+      <div><strong>04</strong><h3>Revision</h3><p>El usuario acepta, el staff revisa y se archivan evidencias autorizadas.</p></div>
+      <div><strong>05</strong><h3>Resultado</h3><p>El staff recibe un reporte final claro y util para tomar decisiones.</p></div>
+    </div>
   </section>
 
   <section class="section" id="privacidad">
-    <h2>Privacidad y normas</h2>
+    <div class="section-heading">
+      <p class="eyebrow">Privacidad</p>
+      <h2>Controlado, consentido y con minimo dato necesario.</h2>
+    </div>
     <div class="grid">
       <div class="card"><h3>Consentimiento</h3><p class="muted">No se realiza escaneo sin aceptacion del usuario y sin ticket trazable.</p></div>
       <div class="card"><h3>Minimo necesario</h3><p class="muted">Se recopila solo informacion tecnica necesaria para la revision.</p></div>
@@ -69,17 +82,23 @@
   </section>
 
   <section class="section" id="planes">
-    <h2>Planes COLMENA-SS</h2>
-    <p>Contrata escaneos sin comprar paquetes del launcher. Puedes empezar con un escaneo individual o activar un plan mensual para tu servidor.</p>
+    <div class="section-heading">
+      <p class="eyebrow">Planes COLMENA-SS</p>
+      <h2>Compra por caso o activa servicio mensual.</h2>
+      <p>Puedes empezar con un escaneo individual o activar un plan recurrente para tu servidor.</p>
+    </div>
     <div class="grid" id="ss-plans"></div>
   </section>
 
   <section class="section" id="contratar">
-    <h2>Contratar servicio</h2>
-    <p>Introduce los datos necesarios para vincular pago, Discord y servidor. No se entrega acceso sin pago validado y Discord ID asociado.</p>
-    <div class="form" id="ss-contract">
+    <div class="section-heading">
+      <p class="eyebrow">Contratacion</p>
+      <h2>Vincula pago, Discord y servidor.</h2>
+      <p>No se entrega acceso sin pago validado y Discord ID asociado.</p>
+    </div>
+    <div class="form elevated" id="ss-contract">
       <select id="ss-plan">
-        <option value="SCANER">Escáner individual</option>
+        <option value="SCANER">Escaner individual</option>
         <option value="MONTHLY_SERVER">Mensual servidor</option>
       </select>
       <input id="ss-customer-name" placeholder="Nombre del comprador">
@@ -90,7 +109,7 @@
       <input id="ss-server-invite" placeholder="Enlace del Discord del servidor">
       <textarea id="ss-notes" placeholder="Notas opcionales"></textarea>
       <label class="check-row"><input id="ss-terms" type="checkbox"> Acepto los terminos</label>
-      <label class="check-row"><input id="ss-policy" type="checkbox"> Acepto COLMENA-SS</label>
+      <label class="check-row"><input id="ss-policy" type="checkbox"> Acepto la normativa COLMENA-SS</label>
       <button class="btn" onclick="checkoutColmenaSS()">Pagar y activar acceso</button>
       <p class="muted" id="ss-result"></p>
     </div>

@@ -6,25 +6,45 @@
   <title>Precios | Colmena WorkSuite</title>
   <link rel="stylesheet" href="/web/styles.css">
 </head>
-<body onload="loadPlans(); loadSSPlans('ss-plans')">
+<body class="page-pricing" onload="loadPlans(); loadSSPlans('ss-plans')">
   <nav class="nav">
-    <div class="brand">COLMENA PRECIOS</div>
+    <a class="brand" href="/">COLMENA PRECIOS</a>
     <div class="nav-links">
       <a href="/">Inicio</a>
       <a href="/colmena-ss">COLMENA-SS</a>
       <a href="/registro">Registro</a>
-      <a href="/panel">Panel</a>
+      <a class="nav-cta" href="/panel">Panel</a>
     </div>
   </nav>
+  <header class="subhero">
+    <p class="eyebrow">Precios claros</p>
+    <h1>Elige producto, servicio o combinacion.</h1>
+    <p>WorkSuite cubre la plataforma completa. COLMENA-SS puede contratarse por separado para escaneos consentidos y soporte a servidores.</p>
+  </header>
   <section class="section">
-    <h2>Planes WorkSuite</h2>
-    <p>Launcher, IA, Discord, logs y control comercial por licencia.</p>
+    <div class="section-heading">
+      <p class="eyebrow">WorkSuite</p>
+      <h2>Planes de plataforma</h2>
+      <p>Launcher, IA, Discord, logs y control comercial por licencia.</p>
+    </div>
     <div class="grid" id="plans"></div>
   </section>
-  <section class="section">
-    <h2>Servicios COLMENA-SS</h2>
-    <p>Contratacion independiente para escaneos consentidos y servidores verificados.</p>
+  <section class="section band">
+    <div class="section-heading">
+      <p class="eyebrow">COLMENA-SS</p>
+      <h2>Servicios de escaneo</h2>
+      <p>Contratacion independiente para escaneos consentidos y servidores verificados.</p>
+    </div>
     <div class="grid" id="ss-plans"></div>
+  </section>
+  <section class="section">
+    <div class="cta-band">
+      <div>
+        <h3>Recomendacion comercial</h3>
+        <p>Premium para la mayoria de servidores. Enterprise Diamond para redes multi-servidor o clientes que necesitan personalizacion.</p>
+      </div>
+      <a class="btn" href="/registro">Crear cuenta</a>
+    </div>
   </section>
   <script src="/web/env.js"></script>
   <script src="/web/app.js"></script>

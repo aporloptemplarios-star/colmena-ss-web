@@ -4,7 +4,25 @@ const tokenKey = 'colmena_saas_token';
 const $ = (id) => document.getElementById(id);
 const token = () => localStorage.getItem(tokenKey);
 const authHeaders = () => token() ? { Authorization: `Bearer ${token()}` } : {};
-const fallbackPlans = {
+const fallbackWorkSuitePlans = {
+  BASIC: {
+    label: 'Basic',
+    priceMonthly: 29,
+    features: { launcher: true, discordSync: true, simpleLogs: true, standardSupport: true }
+  },
+  PREMIUM: {
+    label: 'Premium',
+    priceMonthly: 79,
+    features: { launcherComplete: true, discordBot: true, basicAI: true, advancedLogs: true, colmenaSSBasic: true, prioritySupport: true }
+  },
+  ENTERPRISE_DIAMOND: {
+    label: 'Enterprise Diamond',
+    priceMonthly: 199,
+    features: { advancedAI: true, anticheatBridge: true, colmenaSSPro: true, audit: true, multiServer: true, customization: true }
+  }
+};
+
+const fallbackSSPlans = {
   SCANER: {
     label: 'Contrato por escaner',
     price: 15,
@@ -21,6 +39,24 @@ const fallbackPlans = {
     role: 'SERVIDOR_VERIFICADO',
     features: ['Acceso mensual', 'Servidor verificado', 'Soporte mensual', 'Prioridad en solicitudes']
   }
+};
+const featureLabels = {
+  launcher: 'Launcher basico',
+  discordSync: 'Discord Sync',
+  simpleLogs: 'Logs simples',
+  standardSupport: 'Soporte estandar',
+  launcherComplete: 'Launcher completo',
+  discordBot: 'Bot Discord',
+  basicAI: 'IA basica',
+  advancedLogs: 'Logs avanzados',
+  colmenaSSBasic: 'COLMENA-SS basico',
+  prioritySupport: 'Soporte prioritario',
+  advancedAI: 'IA avanzada',
+  anticheatBridge: 'Anticheat Bridge',
+  colmenaSSPro: 'COLMENA-SS PRO',
+  audit: 'Auditoria',
+  multiServer: 'Multi-servidor',
+  customization: 'Personalizacion'
 };
 
 async function api(path, options = {}) {
@@ -40,7 +76,7 @@ async function api(path, options = {}) {
 async function loadPlans(targetId = 'plans') {
   const box = $(targetId);
   if (!box) return;
-  let data = { plans: fallbackPlans };
+  let data = { plans: fallbackWorkSuitePlans };
   try { data = await api('/api/public/plans'); } catch (err) { console.warn('Usando planes estaticos hasta conectar backend.', err); }
   const copy = {
     BASIC: {
@@ -60,7 +96,7 @@ async function loadPlans(targetId = 'plans') {
     }
   };
 
-  const visiblePlans = Object.entries(data.plans).filter(([key]) => ['SCANER', 'MONTHLY_SERVER'].includes(key));
+  const visiblePlans = Object.entries(data.plans || fallbackWorkSuitePlans).filter(([key]) => ['BASIC', 'PREMIUM', 'ENTERPRISE_DIAMOND'].includes(key));
   box.innerHTML = visiblePlans.map(([key, plan]) => `
     <article class="card plan-card ${key === 'PREMIUM' ? 'featured' : ''}">
       <div class="badge">${copy[key]?.badge || plan.label}</div>
@@ -68,7 +104,7 @@ async function loadPlans(targetId = 'plans') {
       <div class="price">${key === 'ENTERPRISE_DIAMOND' ? 'Desde ' : ''}${plan.priceMonthly}&euro;/mes</div>
       <p class="muted">${copy[key]?.pitch || ''}</p>
       <ul>
-        ${Object.entries(plan.features).filter(([,v]) => v).slice(0, 8).map(([feature]) => `<li>${feature}</li>`).join('')}
+        ${Object.entries(plan.features).filter(([,v]) => v).slice(0, 8).map(([feature]) => `<li>${featureLabels[feature] || feature}</li>`).join('')}
       </ul>
       <button class="btn" onclick="checkout('${key}')">${copy[key]?.cta || 'Comprar'}</button>
     </article>
@@ -78,7 +114,7 @@ async function loadPlans(targetId = 'plans') {
 async function loadSSPlans(targetId = 'ss-plans') {
   const box = $(targetId);
   if (!box) return;
-  let data = { plans: fallbackPlans };
+  let data = { plans: fallbackSSPlans };
   try { data = await api('/api/public/colmena-ss-plans'); } catch (err) { console.warn('Usando planes COLMENA-SS estaticos hasta conectar backend.', err); }
   const visiblePlans = Object.entries(data.plans).filter(([key]) => ['SCANER', 'MONTHLY_SERVER'].includes(key));
   box.innerHTML = visiblePlans.map(([key, plan]) => `
