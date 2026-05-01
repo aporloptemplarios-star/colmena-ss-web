@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Precios | Colmena WorkSuite</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body onload="loadPlans(); loadSSPlans('ss-plans')">
+  <nav class="nav">
+    <div class="brand">COLMENA PRECIOS</div>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/colmena-ss">COLMENA-SS</a>
+      <a href="/registro">Registro</a>
+      <a href="/panel">Panel</a>
+    </div>
+  </nav>
+  <section class="section">
+    <h2>Planes WorkSuite</h2>
+    <p>Launcher, IA, Discord, logs y control comercial por licencia.</p>
+    <div class="grid" id="plans"></div>
+  </section>
+  <section class="section">
+    <h2>Servicios COLMENA-SS</h2>
+    <p>Contratacion independiente para escaneos consentidos y servidores verificados.</p>
+    <div class="grid" id="ss-plans"></div>
+  </section>
+  <script src="/web/app.js"></script>
+</body>
+</html>

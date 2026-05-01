@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel Cliente | Colmena</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body onload="loadPanel()">
+  <div class="panel-layout">
+    <aside class="side">
+      <div class="brand">COLMENA PANEL</div>
+      <a href="/">Web</a>
+      <a href="#licencia">Licencia</a>
+      <a href="#servicios-ss">COLMENA-SS</a>
+      <a href="#escaneos">Escaneos</a>
+      <a href="#logs">Logs</a>
+      <a href="#soporte">Soporte</a>
+      <a href="#" onclick="logout()">Salir</a>
+    </aside>
+    <main class="main">
+      <h1>Panel Cliente</h1>
+      <p class="muted" id="panel-user">Cargando...</p>
+      <div class="grid">
+        <div class="card"><h3>Ingresos</h3><div class="stat" id="panel-revenue">--</div></div>
+        <div class="card"><h3>Licencias</h3><div class="stat" id="panel-licenses">--</div></div>
+        <div class="card"><h3>Escaneos</h3><div class="stat" id="panel-scans">--</div></div>
+      </div>
+      <section class="section" id="perfil">
+        <h2>Perfil y verificacion</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Estado</h3>
+            <div id="account-status"></div>
+          </div>
+          <div class="card">
+            <h3>Actualizar Discord ID</h3>
+            <div class="form">
+              <input id="update-discord-id" placeholder="Nuevo Discord ID">
+              <button class="btn secondary" onclick="updateDiscordId()">Actualizar Discord ID</button>
+              <p class="muted" id="update-discord-result">Si ya tienes rol asignado, el cambio queda bloqueado por seguridad.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="comprar">
+        <h2>Comprar plan</h2>
+        <div class="grid" id="plans"></div>
+      </section>
+      <section class="section" id="servicios-ss">
+        <h2>Mis servicios COLMENA-SS</h2>
+        <div class="grid" id="panel-ss"></div>
+        <div class="actions">
+          <a class="btn secondary" href="/colmena-ss">Contratar COLMENA-SS</a>
+        </div>
+      </section>
+      <section class="section" id="soporte">
+        <h2>Soporte</h2>
+        <div class="form">
+          <input id="support-subject" placeholder="Asunto">
+          <textarea id="support-message" placeholder="Describe tu incidencia"></textarea>
+          <button class="btn" onclick="openSupport()">Abrir soporte</button>
+          <p id="support-result"></p>
+        </div>
+      </section>
+      <section class="section">
+        <h2>Datos</h2>
+        <pre id="panel-json">Cargando...</pre>
+      </section>
+    </main>
+  </div>
+  <script src="/web/app.js"></script>
+  <script>loadPlans('plans')</script>
+</body>
+</html>

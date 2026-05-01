@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colmena Guardian | Premium Launcher</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Google Fonts: Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-card">
+            <button id="win-close-login" class="login-close-btn"><i data-lucide="x"></i></button>
+            <div class="login-brand">
+                <i data-lucide="shield-alert"></i>
+                <span>COLMENA GUARDIAN</span>
+                <p>PROTECCIÓN DE ACCESO REQUERIDA</p>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <i data-lucide="user"></i>
+                    <input type="text" id="login-user" placeholder="Usuario de Seguridad" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <i data-lucide="lock"></i>
+                    <input type="password" id="login-pass" placeholder="Contraseña Maestro">
+                </div>
+                <div class="remember-me-wrapper">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Recordar credenciales</label>
+                </div>
+                <button id="btn-forgot-password" class="forgot-link" type="button">¿Has olvidado tu contraseña?</button>
+                <div class="login-actions">
+                    <button id="btn-login" class="login-btn">INICIAR SESIÓN</button>
+                    <button id="btn-register" class="login-btn secondary">REGISTRAR ENTRADA</button>
+                </div>
+                <p id="login-status"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="forgot-modal" class="modal-backdrop" style="display: none;">
+        <div class="login-card forgot-card">
+            <button id="forgot-close" class="login-close-btn"><i data-lucide="x"></i></button>
+            <div class="login-brand">
+                <i data-lucide="mail-key"></i>
+                <span>RECUPERAR CONTRASEÑA</span>
+                <p>COLMENA WORKSUITE</p>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <i data-lucide="mail"></i>
+                    <input type="email" id="forgot-email" placeholder="Email de tu cuenta">
+                </div>
+                <div class="login-actions">
+                    <button id="forgot-send" class="login-btn">ENVIAR ENLACE</button>
+                    <button id="forgot-open-web" class="login-btn secondary">ABRIR WEB</button>
+                </div>
+                <p id="forgot-status">El cambio final se completa desde el enlace seguro de la web.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="license-overlay" style="display: none;">
+        <div class="login-card license-card">
+            <div class="login-brand">
+                <i data-lucide="key-round"></i>
+                <span>COLMENA WORKSUITE</span>
+                <p>ACTIVACION DE LICENCIA</p>
+            </div>
+            <div class="login-form">
+                <div class="input-group">
+                    <i data-lucide="building-2"></i>
+                    <input type="text" id="license-client-name" placeholder="Cliente / Servidor" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <i data-lucide="server"></i>
+                    <input type="text" id="license-server-id" placeholder="Server ID / Discord Guild ID" autocomplete="off">
+                </div>
+                <div class="input-group">
+                    <i data-lucide="key"></i>
+                    <input type="password" id="license-key" placeholder="License Key">
+                </div>
+                <div class="login-actions">
+                    <button id="btn-license-activate" class="login-btn">ACTIVAR LICENCIA</button>
+                    <button id="btn-license-refresh" class="login-btn secondary">REVALIDAR</button>
+                </div>
+                <p id="license-status">Licencia requerida para desbloquear Colmena WorkSuite.</p>
+                <div class="license-plan-hint">
+                    <span>BASIC</span><span>PREMIUM</span><span>ENTERPRISE DIAMOND</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app" style="display: none;">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand draggable">
+                <i data-lucide="shield"></i>
+                <span>COLMENA GUARDIAN</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" id="nav-home">
+                    <i data-lucide="shield"></i>
+                    <span>INICIO</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-play">
+                    <i data-lucide="gamepad-2"></i>
+                    <span>JUGAR</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-security">
+                    <i data-lucide="shield-check"></i>
+                    <span>SEGURIDAD</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-monitoring">
+                    <i data-lucide="crosshair"></i>
+                    <span>MONITOR</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-ai-diagnostics">
+                    <i data-lucide="brain-circuit"></i>
+                    <span>DIAGNOSTICO IA</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-repair">
+                    <i data-lucide="wrench"></i>
+                    <span>REPARACION PC</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-colmena-ss">
+                    <i data-lucide="video"></i>
+                    <span>COLMENA-SS</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-discord-bot">
+                    <i data-lucide="bot"></i>
+                    <span>DISCORD BOT</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-logs">
+                    <i data-lucide="scroll-text"></i>
+                    <span>LOGS</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-settings">
+                    <i data-lucide="terminal"></i>
+                    <span>AJUSTES</span>
+                </a>
+                <a href="#" class="nav-item" id="nav-support">
+                    <i data-lucide="life-buoy"></i>
+                    <span>SOPORTE</span>
+                </a>
+            </nav>
+            <div class="nav-footer">
+                <div class="quick-admin">
+                    <div class="admin-input-wrapper">
+                        <input type="text" id="admin-target-id" placeholder="Discord ID" maxlength="20">
+                    </div>
+                    <div class="admin-buttons">
+                        <button class="adm-btn ban" title="Banear"><i data-lucide="hammer"></i></button>
+                        <button class="adm-btn kick" title="Kickear"><i data-lucide="log-out"></i></button>
+                        <button class="adm-btn warn" title="Advertir"><i data-lucide="alert-circle"></i></button>
+                    </div>
+                </div>
+                <a href="#" class="nav-item" id="nav-profile">
+                    <i data-lucide="user"></i>
+                    <span>Aporlop</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Neon Status Bar -->
+            <header class="status-bar">
+                <div class="window-controls">
+                    <button id="win-min" class="win-btn"><i data-lucide="minus"></i></button>
+                    <button id="win-max" class="win-btn"><i data-lucide="square"></i></button>
+                    <button id="win-close" class="win-btn close"><i data-lucide="x"></i></button>
+                </div>
+                <div class="status-indicator offline" id="status-discord">DISCORD</div>
+                <div class="status-indicator offline" id="status-scanner">SCANNER</div>
+                <div class="status-indicator offline" id="status-anticheat">ANTICHEAT</div>
+                <div class="status-indicator offline" id="status-bot">BOT</div>
+            </header>
+
+            <!-- VISTA: INICIO (PANELES 2x2) -->
+            <div id="view-home" class="view-content active">
+                <div class="grid-container">
+                    <!-- Panel 1: Discord -->
+                    <section class="panel" id="panel-1">
+                        <div class="panel-header">
+                            <h3><i data-lucide="message-square"></i> Discord</h3>
+                        </div>
+                        <webview id="discord-webview" src="https://discord.com/app" allowpopups></webview>
+                    </section>
+
+                    <!-- Panel 2: Echo -->
+                    <section class="panel" id="panel-2">
+                        <div class="panel-header">
+                            <h3><i data-lucide="shield"></i> Echo.ac</h3>
+                        </div>
+                        <webview id="echo-webview" src="https://echo.ac" allowpopups></webview>
+                    </section>
+
+                    <section class="panel panel-dashboard" id="panel-3">
+                        <!-- ... Dashboard content stays here ... -->
+                        <div class="dashboard-inner">
+                            <aside class="dash-sidebar">
+                                <div class="dash-logo"><i data-lucide="shield"></i><span>COLMENA</span></div>
+                                <nav class="dash-nav">
+                                    <a href="#" class="active"><i data-lucide="layout"></i></a>
+                                    <a href="#"><i data-lucide="bar-chart-2"></i></a>
+                                    <a href="#"><i data-lucide="shield-check"></i></a>
+                                </nav>
+                            </aside>
+                            <div class="dash-main">
+                                <div class="dash-content">
+                                    <div class="summary-cards">
+                                        <div class="stat-card">
+                                            <div class="stat-label">SERVER ID</div>
+                                            <div class="stat-value" id="info-server-id" style="font-size: 0.8rem; color: var(--accent-red);">Cargando...</div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-label">MIEMBROS</div>
+                                            <!-- FIX #8: ID correcto para dashboard:update -->
+                                            <div class="stat-value" id="stat-total-users">--</div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-label">EN LÍNEA</div>
+                                            <div class="stat-value" id="stat-online-users">--</div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-label">SESIONES</div>
+                                            <div class="stat-value" id="stat-active-sessions">--</div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-label">ALERTAS</div>
+                                            <div class="stat-value" id="stat-total-alerts">--</div>
+                                        </div>
+                                    </div>
+                                    <div class="table-section">
+                                        <div class="table-header">AUDITORÍA RECIENTE</div>
+                                        <table class="guardian-table"><tbody id="detections-body"></tbody></table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Panel 4: Log -->
+                    <section class="panel" id="panel-4">
+                        <div class="panel-header">
+                            <h3><i data-lucide="terminal"></i> Bot Log</h3>
+                        </div>
+                        <div class="log-container" id="bot-log"></div>
+                    </section>
+                </div>
+            </div>
+
+            <!-- VISTA: MONITOR COMPLETO (Telemetría Real) -->
+            <div id="view-monitoring" class="view-content">
+                <div class="full-monitor-panel">
+                    <div class="monitor-header">
+                        <h2>SISTEMA DE TELEMETRÍA EN TIEMPO REAL</h2>
+                        <p>MONITOREO DE HARDWARE Y FLUJO DE RED COLMENA</p>
+                    </div>
+                    
+                    <div class="monitor-main-grid">
+                        <!-- Gran Gauge CPU -->
+                        <div class="gauge-box">
+                            <div class="gauge-label">PROCESADOR (CPU)</div>
+                            <div class="big-gauge">
+                                <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle id="f-gauge-cpu" class="fill" cx="50" cy="50" r="45"/></svg>
+                                <span id="f-val-cpu">0%</span>
+                            </div>
+                        </div>
+                        <!-- Gran Gauge GPU -->
+                        <div class="gauge-box">
+                            <div class="gauge-label">GRÁFICOS (GPU)</div>
+                            <div class="big-gauge">
+                                <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle id="f-gauge-gpu" class="fill" cx="50" cy="50" r="45"/></svg>
+                                <span id="f-val-gpu">0%</span>
+                            </div>
+                        </div>
+                        <!-- Gran Gauge RAM -->
+                        <div class="gauge-box">
+                            <div class="gauge-label">MEMORIA (RAM)</div>
+                            <div class="big-gauge">
+                                <svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="45"/><circle id="f-gauge-ram" class="fill" cx="50" cy="50" r="45"/></svg>
+                                <span id="f-val-ram">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="monitor-lower-grid">
+                        <div class="net-stats-box">
+                            <div class="stat-row"><span>LATENCIA (PING)</span><strong id="f-val-ping">-- ms</strong></div>
+                            <div class="stat-row"><span>DESCARGA</span><strong id="f-val-down">0.00 MB/s</strong></div>
+                            <div class="stat-row"><span>SUBIDA</span><strong id="f-val-up">0.00 MB/s</strong></div>
+                        </div>
+                        <div class="disks-box" id="f-disk-list">
+                            <!-- Discos dinámicos -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-settings" class="view-content">
+                <div class="settings-panel">
+                    <div class="settings-header">
+                        <div>
+                            <h2>SALUD DEL SISTEMA</h2>
+                            <p>ESTADO DEL ENLACE NEURAL ENTRE LAUNCHER, IA, DISCORD Y ANTICHEAT</p>
+                        </div>
+                        <div class="settings-actions">
+                            <button id="btn-refresh-health" class="ops-btn" title="Refrescar estado"><i data-lucide="refresh-cw"></i><span>REFRESCAR</span></button>
+                            <button id="btn-restart-discord" class="ops-btn" title="Reconectar Discord"><i data-lucide="radio-tower"></i><span>RECONEXION BOT</span></button>
+                            <button id="btn-retry-queue" class="ops-btn" title="Reintentar cola"><i data-lucide="rotate-ccw"></i><span>REINTENTAR COLA</span></button>
+                            <button id="btn-full-diagnostics" class="ops-btn" title="Diagnostico completo"><i data-lucide="clipboard-list"></i><span>DIAGNOSTICO</span></button>
+                            <button id="btn-simulate-alert" class="ops-btn danger" title="Simular alerta segura"><i data-lucide="radar"></i><span>SIMULAR ALERTA</span></button>
+                        </div>
+                    </div>
+                    <div class="health-grid" id="health-grid"></div>
+                    <div class="health-latest">
+                        <div class="table-header">ULTIMO EVENTO NEURAL</div>
+                        <div id="health-latest-event" class="latest-event">Sin datos.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="view-play" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>JUGAR</h2><p>ARRANQUE PROTEGIDO CON ANTICHEAT Y HEARTBEAT</p></div>
+                    <div class="enterprise-grid">
+                        <div class="enterprise-card"><span>Estado Anticheat</span><strong id="play-anticheat-state">--</strong></div>
+                        <div class="enterprise-card"><span>Bloqueo</span><strong id="play-block-reason">--</strong></div>
+                    </div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-guard-game"><i data-lucide="shield-play"></i><span>COMPROBAR INICIO</span></button>
+                        <button class="ops-btn" id="btn-anticheat-start"><i data-lucide="power"></i><span>INICIAR ANTICHEAT</span></button>
+                    </div>
+                    <pre class="enterprise-output" id="play-output">Esperando validacion.</pre>
+                </section>
+            </div>
+
+            <div id="view-security" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>PANEL DE SEGURIDAD</h2><p>BACKEND, DISCORD BOT, IA, ANTICHEAT Y COLMENA-SS</p></div>
+                    <div class="enterprise-grid" id="security-status-grid"></div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-security-refresh"><i data-lucide="refresh-cw"></i><span>REFRESCAR</span></button>
+                        <button class="ops-btn" id="btn-security-report"><i data-lucide="send"></i><span>ENVIAR REPORTE</span></button>
+                        <button class="ops-btn" id="btn-anticheat-heartbeat"><i data-lucide="activity"></i><span>HEARTBEAT</span></button>
+                        <button class="ops-btn danger" id="btn-anticheat-simulate"><i data-lucide="radar"></i><span>SIMULAR FLAG</span></button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="view-ai-diagnostics" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>DIAGNOSTICO IA</h2><p>ANALISIS TECNICO GUIADO PARA PC, LAUNCHER Y REDM/FIVEM</p></div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn ai-action" data-ai-type="pc"><i data-lucide="monitor-cog"></i><span>ANALIZAR PC</span></button>
+                        <button class="ops-btn ai-action" data-ai-type="launcher"><i data-lucide="app-window"></i><span>ANALIZAR LAUNCHER</span></button>
+                        <button class="ops-btn ai-action" data-ai-type="game"><i data-lucide="gamepad-2"></i><span>ANALIZAR REDM/FIVEM</span></button>
+                        <button class="ops-btn ai-action" data-ai-type="guided_repair"><i data-lucide="wrench"></i><span>REPARACION GUIADA</span></button>
+                        <button class="ops-btn" id="btn-ai-send-support"><i data-lucide="send"></i><span>ENVIAR A SOPORTE</span></button>
+                    </div>
+                    <pre class="enterprise-output" id="ai-diagnostics-output">Selecciona un analisis.</pre>
+                </section>
+            </div>
+
+            <div id="view-repair" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>REPARACION PC</h2><p>COMPROBACIONES SEGURAS SIN COMANDOS DESTRUCTIVOS</p></div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-repair-inspect"><i data-lucide="search-check"></i><span>REVISAR PC</span></button>
+                        <button class="ops-btn" id="btn-repair-preview-clean"><i data-lucide="trash-2"></i><span>PREVISUALIZAR LIMPIEZA</span></button>
+                    </div>
+                    <pre class="enterprise-output" id="repair-output">Sin informe.</pre>
+                </section>
+            </div>
+
+            <div id="view-colmena-ss" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>COLMENA-SS</h2><p>ESCANEOS, REVISIONES Y PAQUETES DE LOGS PARA STAFF</p></div>
+                    <div class="enterprise-grid">
+                        <div class="enterprise-card"><span>Estado</span><strong id="ss-state">--</strong></div>
+                        <div class="enterprise-card"><span>Revision pendiente</span><strong id="ss-review">--</strong></div>
+                    </div>
+                    <pre class="enterprise-output" id="ss-instructions">Sin instrucciones activas.</pre>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-ss-prepare-logs"><i data-lucide="package"></i><span>PREPARAR LOGS</span></button>
+                        <button class="ops-btn" id="btn-ss-appeal"><i data-lucide="scale"></i><span>ABRIR APELACION</span></button>
+                        <button class="ops-btn" id="btn-ss-rules"><i data-lucide="book-open"></i><span>VER NORMAS</span></button>
+                    </div>
+                </section>
+            </div>
+
+            <div id="view-discord-bot" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>DISCORD BOT</h2><p>SINCRONIZACION, RECONEXION Y EVENTOS CRITICOS</p></div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-discord-reconnect-2"><i data-lucide="radio-tower"></i><span>RECONECTAR BOT</span></button>
+                        <button class="ops-btn" id="btn-discord-test-event"><i data-lucide="send"></i><span>EVENTO TEST</span></button>
+                    </div>
+                    <pre class="enterprise-output" id="discord-output">Esperando accion.</pre>
+                </section>
+            </div>
+
+            <div id="view-logs" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>LOGS</h2><p>LAUNCHER, CONEXION, ANTICHEAT, IA, ERRORES Y SOPORTE</p></div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-logs-refresh"><i data-lucide="refresh-cw"></i><span>REFRESCAR LOGS</span></button>
+                        <button class="ops-btn" id="btn-export-report"><i data-lucide="archive"></i><span>EXPORTAR INFORME</span></button>
+                        <button class="ops-btn" id="btn-logs-support"><i data-lucide="send"></i><span>ENVIAR A SOPORTE</span></button>
+                    </div>
+                    <div class="log-container enterprise-log-list" id="enterprise-log-list"></div>
+                </section>
+            </div>
+
+            <div id="view-support" class="view-content">
+                <section class="enterprise-page">
+                    <div class="enterprise-header"><h2>SOPORTE</h2><p>TICKETS, REPORTES CRITICOS Y ASISTENCIA IA</p></div>
+                    <div class="enterprise-actions">
+                        <button class="ops-btn" id="btn-support-ticket"><i data-lucide="ticket"></i><span>ABRIR TICKET</span></button>
+                        <button class="ops-btn" id="btn-support-pc-2"><i data-lucide="stethoscope"></i><span>SOPORTE PC IA</span></button>
+                    </div>
+                    <pre class="enterprise-output" id="support-output">Listo para soporte.</pre>
+                </section>
+            </div>
+
+            <!-- Footer AI -->
+            <footer class="footer">
+                <div class="chat-input-wrapper">
+                    <button id="btn-pc-support" class="support-btn" title="Soporte PC con IA">
+                        <i data-lucide="stethoscope"></i>
+                        <span>SOPORTE PC</span>
+                    </button>
+                    <input type="text" id="chat-input" placeholder="Escribe una orden al núcleo..." autocomplete="off">
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

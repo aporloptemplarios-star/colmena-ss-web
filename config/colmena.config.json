@@ -1,0 +1,26 @@
+{
+  "backendUrl": "",
+  "discordGuildId": "",
+  "apiKeyEnv": "COLMENA_API_KEY",
+  "enableAI": true,
+  "enableAnticheatBridge": true,
+  "enableColmenaSS": true,
+  "enableOfflineQueue": true,
+  "logLevel": "info",
+  "launcherVersion": "2.5.0-PRO",
+  "minLauncherVersion": "2.5.0-PRO",
+  "latestLauncherVersion": "2.5.0-PRO",
+  "backendVersion": "1.1.0-HARDENED",
+  "botVersion": "1.1.0-HARDENED",
+  "updateUrl": "",
+  "aiTimeoutMs": 45000,
+  "requireHmac": true,
+  "rateLimitPerIpPerMinute": 120,
+  "rateLimitPerUserPerMinute": 45
+  ,
+  "commercial": {
+    "defaultPlan": "BASIC",
+    "licenseCacheHours": 6,
+    "allowOfflineGrace": true
+  }
+}

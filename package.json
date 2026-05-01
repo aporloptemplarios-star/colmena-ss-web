@@ -1,0 +1,32 @@
+{
+  "name": "launcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "start:web": "node server.production.js",
+    "start:prod": "NODE_ENV=production node server.production.js",
+    "build": "node --check server.production.js && node --check web/app.js",
+    "check": "node --check main.js && node --check server.production.js && node --check src/services/saasService.js && node --check src/services/authService.js && node --check web/app.js && node --check scripts/check-production-env.js && node --check scripts/smoke-production.js",
+    "check:prod-env": "node scripts/check-production-env.js",
+    "smoke:prod": "node scripts/smoke-production.js",
+    "test": "npm run check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^41.3.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.15.2",
+    "body-parser": "^2.2.2",
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "systeminformation": "^5.23.5"
+  }
+}

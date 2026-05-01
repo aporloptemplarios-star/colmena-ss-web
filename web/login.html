@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro COLMENA-SS | Colmena</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">COLMENA CLIENTE</div>
+    <div class="nav-links">
+      <a href="/web/index.html">Inicio</a>
+      <a href="/colmena-ss">COLMENA-SS</a>
+    </div>
+  </nav>
+  <section class="section">
+    <h2>Acceso Cliente</h2>
+    <p>Para contratar COLMENA-SS debes registrarte primero. El bot usara tu Discord ID registrado para verificarte al entrar al Discord.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Login</h3>
+        <div class="form">
+          <input id="email" placeholder="Email">
+          <input id="password" type="password" placeholder="Contrasena">
+          <button class="btn" onclick="login()">Entrar</button>
+          <a class="muted" href="/forgot-password">¿Has olvidado tu contraseña?</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Registro obligatorio</h3>
+        <div class="form">
+          <input id="full-name" placeholder="Nombre completo">
+          <input id="discord-username" placeholder="Usuario Discord">
+          <input id="discord-id" placeholder="Discord ID">
+          <input id="server-name" placeholder="Nombre del servidor">
+          <input id="server-invite" placeholder="Enlace del Discord del servidor">
+          <label class="check-row"><input id="terms-accepted" type="checkbox"> Acepto los terminos</label>
+          <label class="check-row"><input id="ss-policy-accepted" type="checkbox"> Acepto la politica COLMENA-SS</label>
+          <button class="btn secondary" onclick="register()">Crear cuenta</button>
+          <p class="muted">Usa el email y contrasena del bloque Login junto con estos datos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="/web/app.js"></script>
+</body>
+</html>

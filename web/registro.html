@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro COLMENA-SS | Colmena</title>
+  <link rel="stylesheet" href="/web/styles.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">COLMENA REGISTRO</div>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/colmena-ss">COLMENA-SS</a>
+      <a href="/login">Login</a>
+    </div>
+  </nav>
+  <section class="section">
+    <h2>Crear cuenta</h2>
+    <p>El registro es obligatorio para contratar. El bot validara tu acceso usando solo tu Discord ID registrado.</p>
+    <div class="card">
+      <div class="form">
+        <input id="full-name" placeholder="Nombre completo">
+        <input id="email" placeholder="Email">
+        <input id="discord-username" placeholder="Usuario Discord">
+        <input id="discord-id" placeholder="Discord ID">
+        <input id="server-name" placeholder="Nombre del servidor">
+        <input id="server-invite" placeholder="Enlace del Discord del servidor">
+        <input id="password" type="password" placeholder="Contrasena">
+        <input id="password-confirm" type="password" placeholder="Confirmar contrasena">
+        <label class="check-row"><input id="terms-accepted" type="checkbox"> Acepto los terminos</label>
+        <label class="check-row"><input id="ss-policy-accepted" type="checkbox"> Acepto la normativa COLMENA-SS</label>
+        <button class="btn" onclick="register()">Crear cuenta</button>
+        <p class="muted">Despues del registro podras contratar un escaner o mensualidad de servidor.</p>
+      </div>
+    </div>
+  </section>
+  <script src="/web/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{
+  "colmenaSSPlans": {
+    "SCANER": {
+      "label": "Contrato por Escáner",
+      "price": 15,
+      "billing": "one_time",
+      "role": "CLIENTE_SCANER",
+      "credits": 1
+    },
+    "MONTHLY_SERVER": {
+      "label": "Contrato Mensual Servidor",
+      "price": 149,
+      "billing": "monthly",
+      "role": "SERVIDOR_VERIFICADO",
+      "credits": 20
+    },
+    "SS_INDIVIDUAL": {
+      "label": "Escaneo Individual",
+      "price": 15,
+      "billing": "one_time",
+      "role": "CLIENTE_SS_INDIVIDUAL",
+      "credits": 1
+    },
+    "SS_STARTER": {
+      "label": "Pack Servidor Starter",
+      "price": 49,
+      "billing": "monthly",
+      "role": "CLIENTE_SS_STARTER",
+      "credits": 5
+    },
+    "SS_PRO": {
+      "label": "Pack Servidor Pro",
+      "price": 149,
+      "billing": "monthly",
+      "role": "CLIENTE_SS_PRO",
+      "credits": 20
+    },
+    "SS_DIAMOND": {
+      "label": "Enterprise Diamond SS",
+      "price": 299,
+      "billing": "monthly",
+      "role": "CLIENTE_SS_DIAMOND",
+      "credits": 999
+    }
+  },
+  "plans": {
+    "BASIC": {
+      "label": "Basic",
+      "priceMonthly": 29,
+      "pricePerScan": 15,
+      "pricePerServer": 0,
+      "features": {
+        "launcher": true,
+        "simpleLogs": true,
+        "discordConnection": true,
+        "basicSupport": true,
+        "dashboard": false,
+        "aiBasic": false,
+        "aiAdvanced": false,
+        "colmenaSS": false,
+        "colmenaSSPro": false,
+        "anticheat": false,
+        "anticheatAdvanced": false,
+        "advancedLogs": false,
+        "audit": false,
+        "exportReports": false,
+        "multiServer": false,
+        "prioritySupport": false,
+        "customization": false
+      }
+    },
+    "PREMIUM": {
+      "label": "Premium",
+      "priceMonthly": 79,
+      "pricePerScan": 9,
+      "pricePerServer": 0,
+      "features": {
+        "launcher": true,
+        "simpleLogs": true,
+        "discordConnection": true,
+        "basicSupport": true,
+        "dashboard": true,
+        "aiBasic": true,
+        "aiAdvanced": false,
+        "colmenaSS": true,
+        "colmenaSSPro": false,
+        "anticheat": true,
+        "anticheatAdvanced": false,
+        "advancedLogs": true,
+        "audit": false,
+        "exportReports": true,
+        "multiServer": false,
+        "prioritySupport": false,
+        "customization": false
+      }
+    },
+    "ENTERPRISE_DIAMOND": {
+      "label": "Enterprise Diamond",
+      "priceMonthly": 199,
+      "pricePerScan": 0,
+      "pricePerServer": 0,
+      "features": {
+        "launcher": true,
+        "simpleLogs": true,
+        "discordConnection": true,
+        "basicSupport": true,
+        "dashboard": true,
+        "aiBasic": true,
+        "aiAdvanced": true,
+        "colmenaSS": true,
+        "colmenaSSPro": true,
+        "anticheat": true,
+        "anticheatAdvanced": true,
+        "advancedLogs": true,
+        "audit": true,
+        "exportReports": true,
+        "multiServer": true,
+        "prioritySupport": true,
+        "customization": true
+      }
+    }
+  }
+}

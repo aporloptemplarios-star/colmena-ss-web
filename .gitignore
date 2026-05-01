@@ -1,0 +1,47 @@
+# FIX #13: Evitar que credenciales y datos sensibles se suban a Git
+
+# Variables de entorno (tokens, API keys)
+.env
+.env.*
+!.env.example
+!deployment/.env.production.example
+
+# Dependencias de Node
+node_modules/
+
+# Datos sensibles locales
+data/
+data/users.json
+data/discord_identities.json
+data/colmena_audit.json
+data/system_events.json
+data/delivery_queue.json
+data/enterprise_diagnostics_*.json
+data/initial_admin_credentials.txt
+
+# Logs de Electron
+*.log
+logs/
+
+# Backups y paquetes generados
+backup_colmena_launcher/
+backup_full_colmena/
+ColmenaLauncher_Final/
+ColmenaLauncher_Product/
+Colmena_Web_Final/
+Colmena_WorkSuite_Final/
+*.zip
+
+# Artefactos locales de producto/instalador
+installer/output/
+installer/dist/
+scratch/
+
+# Build outputs
+dist/
+out/
+build/
+
+# Cache y temporales
+.cache/
+*.tmp
