@@ -1,9 +1,27 @@
-const API = '';
+const API = (window.COLMENA_API_BASE || '').replace(/\/$/, '');
 const tokenKey = 'colmena_saas_token';
 
 const $ = (id) => document.getElementById(id);
 const token = () => localStorage.getItem(tokenKey);
 const authHeaders = () => token() ? { Authorization: `Bearer ${token()}` } : {};
+const fallbackPlans = {
+  SCANER: {
+    label: 'Contrato por escaner',
+    price: 15,
+    priceMonthly: 15,
+    billing: 'one_time',
+    role: 'CLIENTE_SCANER',
+    features: ['1 escaneo individual', 'Ticket privado', 'Revision por Discord', 'Reporte basico']
+  },
+  MONTHLY_SERVER: {
+    label: 'Contrato mensual servidor',
+    price: 149,
+    priceMonthly: 149,
+    billing: 'monthly',
+    role: 'SERVIDOR_VERIFICADO',
+    features: ['Acceso mensual', 'Servidor verificado', 'Soporte mensual', 'Prioridad en solicitudes']
+  }
+};
 
 async function api(path, options = {}) {
   const res = await fetch(`${API}${path}`, {
@@ -22,7 +40,8 @@ async function api(path, options = {}) {
 async function loadPlans(targetId = 'plans') {
   const box = $(targetId);
   if (!box) return;
-  const data = await api('/api/public/plans');
+  let data = { plans: fallbackPlans };
+  try { data = await api('/api/public/plans'); } catch (err) { console.warn('Usando planes estaticos hasta conectar backend.', err); }
   const copy = {
     BASIC: {
       badge: 'Entrada',
@@ -59,7 +78,8 @@ async function loadPlans(targetId = 'plans') {
 async function loadSSPlans(targetId = 'ss-plans') {
   const box = $(targetId);
   if (!box) return;
-  const data = await api('/api/public/colmena-ss-plans');
+  let data = { plans: fallbackPlans };
+  try { data = await api('/api/public/colmena-ss-plans'); } catch (err) { console.warn('Usando planes COLMENA-SS estaticos hasta conectar backend.', err); }
   const visiblePlans = Object.entries(data.plans).filter(([key]) => ['SCANER', 'MONTHLY_SERVER'].includes(key));
   box.innerHTML = visiblePlans.map(([key, plan]) => `
     <article class="card plan-card ${key === 'MONTHLY_SERVER' ? 'featured' : ''}">

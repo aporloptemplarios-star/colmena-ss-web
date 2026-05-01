@@ -26,6 +26,24 @@ const saas = new SaasService({
 });
 
 const app = express();
+const corsOrigins = (process.env.CORS_ORIGINS || [
+    APP_URL,
+    'https://colmena-ss.es',
+    'https://www.colmena-ss.es',
+    'https://colmena-ss-web.vercel.app'
+].join(',')).split(',').map(v => v.trim()).filter(Boolean);
+app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (origin && corsOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+        res.setHeader('Vary', 'Origin');
+        res.setHeader('Access-Control-Allow-Credentials', 'true');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Stripe-Signature');
+        res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+    }
+    if (req.method === 'OPTIONS') return res.status(204).end();
+    return next();
+});
 app.use(bodyParser.json({ limit: '256kb', strict: true, verify: (req, res, buf) => { req.rawBody = buf; } }));
 app.use('/web', express.static(path.join(ROOT, 'web')));
 

@@ -23,4 +23,9 @@ fs.cpSync(source, target, { recursive: true });
 fs.mkdirSync(path.join(target, 'web'), { recursive: true });
 fs.cpSync(source, path.join(target, 'web'), { recursive: true });
 
+const apiBase = String(process.env.COLMENA_API_BASE || process.env.NEXT_PUBLIC_COLMENA_API_BASE || '').replace(/\/$/, '');
+const envJs = `window.COLMENA_API_BASE = ${JSON.stringify(apiBase)};\n`;
+fs.writeFileSync(path.join(target, 'env.js'), envJs);
+fs.writeFileSync(path.join(target, 'web', 'env.js'), envJs);
+
 console.log('Build Vercel listo: web copiado a public y public/web.');
