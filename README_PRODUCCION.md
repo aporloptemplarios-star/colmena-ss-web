@@ -51,7 +51,7 @@ Pendientes obligatorios antes de poner online:
   - Apex/root: `A @ 76.76.21.21`
   - WWW: `CNAME www` al valor exacto que muestre Vercel, normalmente `cname.vercel-dns.com`.
 - Configurar VPS Ubuntu.
-- Configurar Stripe live y webhook `https://colmena-ss.es/api/stripe/webhook`.
+- Configurar Stripe live y webhook real `https://api.colmena-ss.es/api/stripe/webhook`.
 - Configurar Discord bot, guild, owner, canal de invitaciones y roles.
 - Configurar SMTP real.
 - Copiar `.env.production` como `.env` en el VPS y quitar todos los valores `PENDIENTE`.
@@ -65,6 +65,14 @@ npm run check:prod-env
 pm2 start deployment/ecosystem.config.js
 pm2 save
 npm run smoke:prod
+```
+
+Backend/bot en VPS:
+
+```bash
+cd /var/www/colmena-web
+pm2 logs colmena-web
+npm run smoke:api
 ```
 
 Reglas:

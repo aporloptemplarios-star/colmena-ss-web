@@ -12,6 +12,7 @@
     "check": "node --check main.js && node --check server.production.js && node --check src/services/saasService.js && node --check src/services/authService.js && node --check web/app.js && node --check scripts/check-production-env.js && node --check scripts/smoke-production.js",
     "check:prod-env": "node scripts/check-production-env.js",
     "smoke:prod": "node scripts/smoke-production.js",
+    "smoke:api": "node scripts/smoke-backend-api.js",
     "test": "npm run check"
   },
   "engines": {

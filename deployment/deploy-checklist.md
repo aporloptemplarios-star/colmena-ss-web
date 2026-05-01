@@ -13,7 +13,7 @@
 - `.env.production` local preparado con pendientes controlados.
 - En VPS copiar `.env.production` como `.env` y sustituir todos los `PENDIENTE_*`.
 - Stripe en modo live configurado.
-- Webhook Stripe apuntando al endpoint real del proyecto: `https://colmena-ss.es/api/stripe/webhook`.
+- Webhook Stripe para backend VPS: `https://api.colmena-ss.es/api/stripe/webhook`.
 - Discord bot invitado al servidor.
 - Server Members Intent activado.
 - Roles Discord creados o IDs configurados.
@@ -48,7 +48,7 @@ npm run smoke:prod
 
 - `GET /api/status` debe responder con el estado general.
 - `GET /api/health` debe responder `ready: true` cuando Stripe, Discord y JWT esten configurados.
-- Stripe debe enviar `checkout.session.completed` al endpoint `/api/stripe/webhook`.
+- Stripe debe enviar `checkout.session.completed` al endpoint `https://api.colmena-ss.es/api/stripe/webhook`.
 - Abrir `/registro`.
 - Crear usuario.
 - Comprar `SCANER`.
