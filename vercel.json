@@ -3,6 +3,50 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.colmena-ss.es" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "colmena-ss.com" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.colmena-ss.com" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "colmena-ss.org" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.colmena-ss.org" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "colmena-ss.store" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.colmena-ss.store" }],
+      "destination": "https://colmena-ss.es/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/colmena-ss",

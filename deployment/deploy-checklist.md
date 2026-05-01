@@ -4,6 +4,10 @@
 
 - Dominio principal: `colmena-ss.es`.
 - Dominios secundarios: `colmena-ss.com`, `colmena-ss.org`, `colmena-ss.store`.
+- En Vercel, agregar tambien `www` para cada dominio.
+- DNS Vercel:
+  - `A @ 76.76.21.21`
+  - `CNAME www` al valor exacto que muestre Vercel, normalmente `cname.vercel-dns.com`
 - VPS Ubuntu creado.
 - DNS A apuntando al VPS.
 - `.env.production` local preparado con pendientes controlados.

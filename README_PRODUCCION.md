@@ -38,6 +38,18 @@ Pendientes obligatorios antes de poner online:
 
 - Dominio principal configurado: `https://colmena-ss.es`.
 - Alias previstos: `colmena-ss.com`, `colmena-ss.org`, `colmena-ss.store`.
+- En Vercel, agregar estos dominios al proyecto:
+  - `colmena-ss.es`
+  - `www.colmena-ss.es`
+  - `colmena-ss.com`
+  - `www.colmena-ss.com`
+  - `colmena-ss.org`
+  - `www.colmena-ss.org`
+  - `colmena-ss.store`
+  - `www.colmena-ss.store`
+- DNS recomendado para dominios en Vercel:
+  - Apex/root: `A @ 76.76.21.21`
+  - WWW: `CNAME www` al valor exacto que muestre Vercel, normalmente `cname.vercel-dns.com`.
 - Configurar VPS Ubuntu.
 - Configurar Stripe live y webhook `https://colmena-ss.es/api/stripe/webhook`.
 - Configurar Discord bot, guild, owner, canal de invitaciones y roles.
